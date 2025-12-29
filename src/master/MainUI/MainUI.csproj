@@ -1,0 +1,174 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>淋雨架改造</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <!--<Nullable>enable</Nullable>-->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--<RestorePackagesPath>..\packages</RestorePackagesPath>-->
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <GenerateResourceWarnOnBinaryFormatterUse>false</GenerateResourceWarnOnBinaryFormatterUse>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <ApplicationIcon>bin\Debug\net8.0-windows\ico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;</NoWarn>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;</NoWarn>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Modules\AIGrp.cs" />
+    <Compile Update="Modules\WSDGrp.cs" />
+    <Compile Update="Modules\AOGrp.cs" />
+    <Compile Update="Modules\DIGrp.cs" />
+    <Compile Update="Modules\DOGrp.cs" />
+    <Compile Update="Modules\OpcStatusGrp.cs" />
+    <Compile Update="Modules\PLCCalibration.cs" />
+    <Compile Update="Procedure\ucBaseManagerUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\UCCalibration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\ucKindManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\Controls\DSL\ucItemManagerial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\ucTypeManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\ucTestParams.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Procedure\User\ucUserManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="ucHMI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\backimg.png" />
+    <Content Include="log.txt" />
+    <Content Include="readMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AntdUI" Version="1.9.0" />
+    <PackageReference Include="Costura.Fody" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    </PackageReference>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="FreeSql" Version="3.2.833" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="3.2.833" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-rc4.5" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NLog" Version="5.3.4" />
+    <PackageReference Include="NLog.Database" Version="5.3.4" />
+    <PackageReference Include="SunnyUI" Version="3.8.2" />
+    <PackageReference Include="System.Data.OleDb" Version="8.0.1" />
+    <PackageReference Include="System.IO.Ports" Version="9.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Equip\BrakeCircuit.cs" />
+    <Compile Remove="Equip\JYNYTest.cs" />
+    <Compile Remove="Equip\JYNYTest.Designer.cs" />
+    <Compile Remove="Equip\TH2516.cs" />
+    <Compile Remove="Equip\TH2516B.cs" />
+    <Compile Remove="Equip\TH2683.cs" />
+    <Compile Remove="Equip\TH2683B.cs" />
+    <Compile Remove="Equip\TH9320.cs" />
+    <Compile Remove="Equip\ucTH9320.cs" />
+    <Compile Remove="Equip\ucTH9320.Designer.cs" />
+    <Compile Remove="Login.cs" />
+    <Compile Remove="Login.Designer.cs" />
+    <Compile Remove="Procedure\FrmPressShow.cs" />
+    <Compile Remove="Procedure\FrmPressShow.Designer.cs" />
+    <Compile Remove="Procedure\Test\AirTest.cs" />
+    <Compile Remove="Procedure\Test\AroundTest.cs" />
+    <Compile Remove="Procedure\Test\LeakCheckTest.cs" />
+    <Compile Remove="Procedure\Test\NoiseTest.cs" />
+    <Compile Remove="Procedure\Test\YLKGNoiseTest.cs" />
+    <EmbeddedResource Remove="Equip\JYNYTest.resx" />
+    <EmbeddedResource Remove="Equip\ucTH9320.resx" />
+    <EmbeddedResource Remove="Login.resx" />
+    <EmbeddedResource Remove="Procedure\FrmPressShow.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="0y5tvoxo.ngb~" />
+    <None Remove="CurrencyHelper\a5ycmvpb.5x5~" />
+    <None Remove="frmSetOutValue.Designer.cs~RF14ab2fd2.TMP" />
+    <None Remove="mdkfplz3.elj~" />
+    <None Remove="Model\TestProcessModel.cs~RF5a5f71d.TMP" />
+    <None Remove="Model\TestStepModel.cs~RFa891e57.TMP" />
+    <None Remove="Procedure\Controls\DSL\FrmSetParameter.cs~RF1a88df9.TMP" />
+    <None Remove="Procedure\Test\OfflineTest.cs~RFa650a41.TMP" />
+    <None Remove="Procedure\ucItemManagerial.cs~RF14f7b8a8.TMP" />
+    <None Remove="Procedure\ucItemManagerial.cs~RF69eb5c3.TMP" />
+    <None Remove="ucHMI.cs~RF261e527e.TMP" />
+    <None Remove="ucHMI.Designer.cs~RF15724ff5.TMP" />
+    <None Remove="ucHMI.Designer.cs~RF541984a.TMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Sunny.UI" />
+    <Using Include="System.Data" />
+    <Using Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime">
+      <HintPath>..\Lib\DSL_DLL\Antlr4.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.OPCAutomation">
+      <HintPath>..\Lib\Interop.OPCAutomation.dll</HintPath>
+      <EmbedInteropTypes></EmbedInteropTypes>
+      <Private></Private>
+    </Reference>
+    <Reference Include="MQTTnet">
+      <HintPath>..\Lib\MQTTnet.dll</HintPath>
+    </Reference>
+    <Reference Include="rw3">
+      <HintPath>..\Lib\DSL_DLL\rw3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>
