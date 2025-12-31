@@ -62,11 +62,9 @@ namespace MainUI
             uiLabel3 = new UILabel();
             txtModel = new UITextBox();
             uiLabel2 = new UILabel();
-            btnStartTest = new UIButton();
             button2 = new AntdUI.Button();
             uiPanel12 = new UIPanel();
             uiTitlePanel8 = new UITitlePanel();
-            btnStopTest = new UIButton();
             tabs1 = new AntdUI.Tabs();
             tabPage3 = new AntdUI.TabPage();
             grpRainy = new UIPanel();
@@ -370,7 +368,7 @@ namespace MainUI
             uiTitlePanel3.Radius = 0;
             uiTitlePanel3.RectColor = Color.FromArgb(49, 54, 64);
             uiTitlePanel3.ShowText = false;
-            uiTitlePanel3.Size = new Size(314, 527);
+            uiTitlePanel3.Size = new Size(314, 608);
             uiTitlePanel3.TabIndex = 398;
             uiTitlePanel3.Text = "试验信息过程";
             uiTitlePanel3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -400,7 +398,7 @@ namespace MainUI
             txtTestRecord.ScrollBarColor = Color.FromArgb(239, 154, 78);
             txtTestRecord.ScrollBarStyleInherited = false;
             txtTestRecord.ShowText = false;
-            txtTestRecord.Size = new Size(293, 464);
+            txtTestRecord.Size = new Size(293, 545);
             txtTestRecord.TabIndex = 395;
             txtTestRecord.TextAlignment = ContentAlignment.MiddleCenter;
             // 
@@ -807,36 +805,6 @@ namespace MainUI
             uiLabel2.Text = "车型型号:";
             uiLabel2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnStartTest
-            // 
-            btnStartTest.Cursor = Cursors.Hand;
-            btnStartTest.FillColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.FillColor2 = Color.FromArgb(90, 124, 236);
-            btnStartTest.FillDisableColor = Color.FromArgb(153, 153, 161);
-            btnStartTest.FillHoverColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.FillPressColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.FillSelectedColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            btnStartTest.ForeColor = Color.FromArgb(235, 227, 221);
-            btnStartTest.ForeDisableColor = Color.FromArgb(235, 227, 221);
-            btnStartTest.LightColor = Color.FromArgb(245, 251, 241);
-            btnStartTest.Location = new Point(8, 884);
-            btnStartTest.MinimumSize = new Size(1, 1);
-            btnStartTest.Name = "btnStartTest";
-            btnStartTest.Radius = 7;
-            btnStartTest.RectColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.RectDisableColor = Color.FromArgb(153, 153, 161);
-            btnStartTest.RectHoverColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.RectPressColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.RectSelectedColor = Color.FromArgb(90, 124, 236);
-            btnStartTest.Size = new Size(145, 70);
-            btnStartTest.Style = UIStyle.Custom;
-            btnStartTest.StyleCustomMode = true;
-            btnStartTest.TabIndex = 398;
-            btnStartTest.Text = "开始试验";
-            btnStartTest.TipsFont = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            btnStartTest.Click += btnStartTest_Click;
-            // 
             // button2
             // 
             button2.BackActive = Color.FromArgb(239, 154, 78);
@@ -891,7 +859,7 @@ namespace MainUI
             uiTitlePanel8.FillColor2 = Color.FromArgb(49, 54, 64);
             uiTitlePanel8.FillDisableColor = Color.FromArgb(49, 54, 64);
             uiTitlePanel8.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
-            uiTitlePanel8.Location = new Point(8, 757);
+            uiTitlePanel8.Location = new Point(8, 838);
             uiTitlePanel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             uiTitlePanel8.MinimumSize = new Size(1, 1);
             uiTitlePanel8.Name = "uiTitlePanel8";
@@ -906,36 +874,6 @@ namespace MainUI
             uiTitlePanel8.TitleColor = Color.FromArgb(239, 154, 78);
             uiTitlePanel8.TitleForeColor = Color.FromArgb(235, 227, 221);
             uiTitlePanel8.TitleHeight = 29;
-            // 
-            // btnStopTest
-            // 
-            btnStopTest.Cursor = Cursors.Hand;
-            btnStopTest.FillColor = Color.FromArgb(230, 83, 100);
-            btnStopTest.FillColor2 = Color.FromArgb(230, 83, 100);
-            btnStopTest.FillDisableColor = Color.FromArgb(153, 153, 161);
-            btnStopTest.FillHoverColor = Color.FromArgb(235, 115, 115);
-            btnStopTest.FillPressColor = Color.FromArgb(184, 64, 64);
-            btnStopTest.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            btnStopTest.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            btnStopTest.ForeColor = Color.FromArgb(235, 227, 221);
-            btnStopTest.ForeDisableColor = Color.FromArgb(235, 227, 221);
-            btnStopTest.LightColor = Color.FromArgb(253, 243, 243);
-            btnStopTest.Location = new Point(173, 884);
-            btnStopTest.MinimumSize = new Size(1, 1);
-            btnStopTest.Name = "btnStopTest";
-            btnStopTest.Radius = 7;
-            btnStopTest.RectColor = Color.FromArgb(230, 83, 100);
-            btnStopTest.RectDisableColor = Color.FromArgb(153, 153, 161);
-            btnStopTest.RectHoverColor = Color.FromArgb(235, 115, 115);
-            btnStopTest.RectPressColor = Color.FromArgb(184, 64, 64);
-            btnStopTest.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            btnStopTest.Size = new Size(145, 70);
-            btnStopTest.Style = UIStyle.Custom;
-            btnStopTest.StyleCustomMode = true;
-            btnStopTest.TabIndex = 399;
-            btnStopTest.Text = "结束试验";
-            btnStopTest.TipsFont = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            btnStopTest.Click += btnStopTest_Click;
             // 
             // tabs1
             // 
@@ -1154,6 +1092,7 @@ namespace MainUI
             // ucRainyManual5
             // 
             ucRainyManual5.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual5.EnableFlowMonitor = true;
             ucRainyManual5.InternetTraffic = 0D;
             ucRainyManual5.InternetTrafficBZ = null;
             ucRainyManual5.InternetTrafficName = null;
@@ -1164,13 +1103,16 @@ namespace MainUI
             ucRainyManual5.PressureName = null;
             ucRainyManual5.Size = new Size(197, 409);
             ucRainyManual5.SolenoidName = null;
+            ucRainyManual5.StandardValue = 0D;
             ucRainyManual5.TabIndex = 408;
             ucRainyManual5.Tag = "6";
+            ucRainyManual5.ThresholdPercent = 10D;
             ucRainyManual5.TitleName = null;
             // 
             // ucRainyManual6
             // 
             ucRainyManual6.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual6.EnableFlowMonitor = true;
             ucRainyManual6.InternetTraffic = 0D;
             ucRainyManual6.InternetTrafficBZ = null;
             ucRainyManual6.InternetTrafficName = null;
@@ -1181,13 +1123,16 @@ namespace MainUI
             ucRainyManual6.PressureName = null;
             ucRainyManual6.Size = new Size(197, 409);
             ucRainyManual6.SolenoidName = null;
+            ucRainyManual6.StandardValue = 0D;
             ucRainyManual6.TabIndex = 407;
             ucRainyManual6.Tag = "5";
+            ucRainyManual6.ThresholdPercent = 10D;
             ucRainyManual6.TitleName = null;
             // 
             // ucRainyManual7
             // 
             ucRainyManual7.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual7.EnableFlowMonitor = true;
             ucRainyManual7.InternetTraffic = 0D;
             ucRainyManual7.InternetTrafficBZ = null;
             ucRainyManual7.InternetTrafficName = null;
@@ -1198,13 +1143,16 @@ namespace MainUI
             ucRainyManual7.PressureName = null;
             ucRainyManual7.Size = new Size(197, 409);
             ucRainyManual7.SolenoidName = null;
+            ucRainyManual7.StandardValue = 0D;
             ucRainyManual7.TabIndex = 406;
             ucRainyManual7.Tag = "4";
+            ucRainyManual7.ThresholdPercent = 10D;
             ucRainyManual7.TitleName = null;
             // 
             // ucRainyManual4
             // 
             ucRainyManual4.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual4.EnableFlowMonitor = true;
             ucRainyManual4.InternetTraffic = 0D;
             ucRainyManual4.InternetTrafficBZ = null;
             ucRainyManual4.InternetTrafficName = null;
@@ -1215,13 +1163,16 @@ namespace MainUI
             ucRainyManual4.PressureName = null;
             ucRainyManual4.Size = new Size(197, 409);
             ucRainyManual4.SolenoidName = null;
+            ucRainyManual4.StandardValue = 0D;
             ucRainyManual4.TabIndex = 405;
             ucRainyManual4.Tag = "3";
+            ucRainyManual4.ThresholdPercent = 10D;
             ucRainyManual4.TitleName = null;
             // 
             // ucRainyManual3
             // 
             ucRainyManual3.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual3.EnableFlowMonitor = true;
             ucRainyManual3.InternetTraffic = 0D;
             ucRainyManual3.InternetTrafficBZ = null;
             ucRainyManual3.InternetTrafficName = null;
@@ -1232,13 +1183,16 @@ namespace MainUI
             ucRainyManual3.PressureName = null;
             ucRainyManual3.Size = new Size(197, 409);
             ucRainyManual3.SolenoidName = null;
+            ucRainyManual3.StandardValue = 0D;
             ucRainyManual3.TabIndex = 404;
             ucRainyManual3.Tag = "2";
+            ucRainyManual3.ThresholdPercent = 10D;
             ucRainyManual3.TitleName = null;
             // 
             // ucRainyManual2
             // 
             ucRainyManual2.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual2.EnableFlowMonitor = true;
             ucRainyManual2.InternetTraffic = 0D;
             ucRainyManual2.InternetTrafficBZ = null;
             ucRainyManual2.InternetTrafficName = null;
@@ -1249,13 +1203,16 @@ namespace MainUI
             ucRainyManual2.PressureName = null;
             ucRainyManual2.Size = new Size(197, 409);
             ucRainyManual2.SolenoidName = null;
+            ucRainyManual2.StandardValue = 0D;
             ucRainyManual2.TabIndex = 403;
             ucRainyManual2.Tag = "1";
+            ucRainyManual2.ThresholdPercent = 10D;
             ucRainyManual2.TitleName = null;
             // 
             // ucRainyManual1
             // 
             ucRainyManual1.BackColor = Color.FromArgb(43, 46, 57);
+            ucRainyManual1.EnableFlowMonitor = true;
             ucRainyManual1.InternetTraffic = 0D;
             ucRainyManual1.InternetTrafficBZ = null;
             ucRainyManual1.InternetTrafficName = null;
@@ -1266,8 +1223,10 @@ namespace MainUI
             ucRainyManual1.PressureName = null;
             ucRainyManual1.Size = new Size(197, 409);
             ucRainyManual1.SolenoidName = null;
+            ucRainyManual1.StandardValue = 0D;
             ucRainyManual1.TabIndex = 402;
             ucRainyManual1.Tag = "0";
+            ucRainyManual1.ThresholdPercent = 10D;
             ucRainyManual1.TitleName = null;
             // 
             // grpDI
@@ -2400,8 +2359,6 @@ namespace MainUI
             Controls.Add(uiTitlePanel8);
             Controls.Add(uiPanel12);
             Controls.Add(uiTitlePanel3);
-            Controls.Add(btnStopTest);
-            Controls.Add(btnStartTest);
             Controls.Add(button2);
             Font = new Font("宋体", 11F);
             Margin = new System.Windows.Forms.Padding(4);
@@ -2474,12 +2431,10 @@ namespace MainUI
         private UITextBox txtModel;
         private UILabel uiLabel2;
         private UIRichTextBox txtTestRecord;
-        private UIButton btnStartTest;
         private AntdUI.Button button2;
         private UITitlePanel uiTitlePanel3;
         private UIPanel uiPanel12;
         private UITitlePanel uiTitlePanel8;
-        private UIButton btnStopTest;
         private AntdUI.Tabs tabs1;
         private AntdUI.TabPage tabPage3;
         private UIPanel LabAO00Out;

@@ -1000,6 +1000,7 @@ namespace MainUI
           UIDigitalLabelExtensions.ShowSettingDialog07(LabAO07, sender, frm);
         #endregion
 
+        #region 流量自定义控件功能
         private void InitRainy()
         {
             for (int i = 0; i < DicRainy.Count; i++)
@@ -1007,37 +1008,119 @@ namespace MainUI
                 Invoke(() =>
                 {
                     int key = i + 1;
-                    // DicRainy[i].TitleName = $"通道{key}";
                     DicRainy[i].PressureName = $"压力传感器{key}(MPa)";
                     DicRainy[i].InternetTrafficName = $"流量传感器{key}(m³/h)";
-                    // DicRainy[i].SolenoidName = $"电磁阀控制{key}";
                     DicRainy[i].OpenClick += UcHMI_OpenClick;
+
+                    // 新增：订阅流量报警事件
+                    DicRainy[i].FlowAlarm += UcHMI_FlowAlarm;
                 });
             }
 
             InternetTrafficBZConfig bZConfig = new();
             bZConfig.Load();
 
+            // 设置各管路标准值（同时设置显示文本和数值）
             DicRainy[0].TitleName = "供车顶";
             DicRainy[0].InternetTrafficBZ = $"流量标准{bZConfig.Standard01}(m³/h)";
+            DicRainy[0].StandardValue = bZConfig.Standard01.ToDouble(); 
 
             DicRainy[1].TitleName = "西侧墙";
             DicRainy[1].InternetTrafficBZ = $"流量标准{bZConfig.Standard02}(m³/h)";
+            DicRainy[1].StandardValue = bZConfig.Standard02.ToDouble(); 
 
             DicRainy[2].TitleName = "西车底";
             DicRainy[2].InternetTrafficBZ = $"流量标准{bZConfig.Standard03}(m³/h)";
+            DicRainy[2].StandardValue = bZConfig.Standard03.ToDouble(); 
 
             DicRainy[3].TitleName = "北车罩";
             DicRainy[3].InternetTrafficBZ = $"流量标准{bZConfig.Standard04}(m³/h)";
+            DicRainy[3].StandardValue = bZConfig.Standard04.ToDouble(); 
 
             DicRainy[4].TitleName = "南车罩";
             DicRainy[4].InternetTrafficBZ = $"流量标准{bZConfig.Standard05}(m³/h)";
+            DicRainy[4].StandardValue = bZConfig.Standard05.ToDouble(); 
 
             DicRainy[5].TitleName = "东侧墙";
             DicRainy[5].InternetTrafficBZ = $"流量标准{bZConfig.Standard06}(m³/h)";
+            DicRainy[5].StandardValue = bZConfig.Standard06.ToDouble(); 
 
             DicRainy[6].TitleName = "东车底";
             DicRainy[6].InternetTrafficBZ = $"流量标准{bZConfig.Standard07}(m³/h)";
+            DicRainy[6].StandardValue = bZConfig.Standard07.ToDouble(); 
+        }
+
+        /// <summary>
+        /// 流量超标报警事件处理
+        /// </summary>
+        private async void UcHMI_FlowAlarm(object sender, FlowAlarmEventArgs e)
+        {
+            try
+            {
+                // 获取触发报警的控件
+                if (sender is not UcRainyManual manual)
+                    return;
+
+                int key = manual.Tag.ToInt32();
+
+                // 关闭对应管路的电磁阀
+                if (DicRainy.TryGetValue(key, out UcRainyManual ucRainy))
+                {
+                    // 检查当前是否开启状态，如果是则关闭
+                    if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
+                    {
+                        //SetStatus(OPCHelper.DOgrp.DOlist, key, false); //不需要关闭输出
+                        AppendText($"[报警] {e.ChannelName} 流量超标，已自动关闭管路输出");
+                    }
+                }
+
+                // 显示提示信息
+                string alarmMsg = $"[流量超标报警]\n" +
+                                 $"管路: {e.ChannelName}\n" +
+                                 $"当前流量: {e.CurrentFlow:F2} m³/h\n" +
+                                 $"标准值: {e.StandardValue:F2} m³/h\n" +
+                                 $"报警阈值: {e.Threshold:F2} m³/h (超标{e.ThresholdPercent}%)\n" +
+                                 $"时间: {e.AlarmTime:yyyy-MM-dd HH:mm:ss}";
+
+                AppendText(alarmMsg);
+                NlogHelper.Default.Warn(alarmMsg);
+
+                // 上传故障信息到MQTT
+                await UploadFlowAlarmToMQTT(e);
+            }
+            catch (Exception ex)
+            {
+                NlogHelper.Default.Error($"处理流量报警异常：{ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// 上传流量超标故障信息到MQTT
+        /// </summary>
+        private async Task UploadFlowAlarmToMQTT(FlowAlarmEventArgs e)
+        {
+            try
+            {
+                // 生成故障代码 (根据管路编号)
+                string faultCode = $"F{(e.ChannelTag.ToInt32() + 1):D3}"; // 如: F001, F002...
+
+                var fault = new FaultResult
+                {
+                    FaultCode = faultCode,
+                    FaultLevel = "警告",
+                    FaultDesc = $"{e.ChannelName}流量超标：当前{e.CurrentFlow:F2}m³/h，标准{e.StandardValue:F2}m³/h，超出{e.ThresholdPercent}%",
+                    FaultStatus = "0", // 0:故障中
+                    FaultTime = e.AlarmTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    Desc = $"自动关闭管路输出，流量阈值{e.Threshold:F2}m³/h"
+                };
+
+                // 调用已有的MQTT故障上传方法
+                await SendFaultInformationAsync(fault);
+            }
+            catch (Exception ex)
+            {
+                NlogHelper.Default.Error($"上传流量报警到MQTT异常：{ex.Message}", ex);
+            }
         }
 
         private void UcHMI_OpenClick(object sender, EventArgs e)
@@ -1045,22 +1128,40 @@ namespace MainUI
             if (sender is not UcRainyManual manual)
                 return;
 
-            int key = manual.Tag.ToInt32();
-            if (DicRainy.TryGetValue(key, value: out UcRainyManual ucRainy))
+            // 检查是否是自动关闭（流量超标触发）
+            if (e is FlowAlarmCloseEventArgs closeArgs && closeArgs.IsAutoClose)
             {
-                if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
+                // 自动关闭，不需要切换，直接关闭
+                int key = manual.Tag.ToInt32();
+                if (DicRainy.TryGetValue(key, out _))
                 {
-                    SetStatus(OPCHelper.DOgrp.DOlist, key, false);
+                    if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
+                    {
+                        SetStatus(OPCHelper.DOgrp.DOlist, key, false);
+                    }
                 }
-                else
-                {
-                    SetStatus(OPCHelper.DOgrp.DOlist, key, true);
-                }
+                return;
+            }
 
-                //int index = key * 2;
-                //bool isOpen = ucRainy.IsOpen;
-                //OPCHelper.DOgrp[index] = !isOpen;
-                //OPCHelper.DOgrp[index + 1] = isOpen;
+            // 手动切换逻辑
+            {
+                int key = manual.Tag.ToInt32();
+                if (DicRainy.TryGetValue(key, value: out _))
+                {
+                    if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
+                    {
+                        SetStatus(OPCHelper.DOgrp.DOlist, key, false);
+                    }
+                    else
+                    {
+                        SetStatus(OPCHelper.DOgrp.DOlist, key, true);
+                    }
+
+                    //int index = key * 2;
+                    //bool isOpen = ucRainy.IsOpen;
+                    //OPCHelper.DOgrp[index] = !isOpen;
+                    //OPCHelper.DOgrp[index + 1] = isOpen;
+                }
             }
         }
 
@@ -1123,7 +1224,7 @@ namespace MainUI
 
             return true;
         }
-
+        #endregion
         private void UcHMI_Load(object sender, EventArgs e)
         {
             MQTTInit();
