@@ -1064,15 +1064,15 @@ namespace MainUI
                 int key = manual.Tag.ToInt32();
 
                 // 关闭对应管路的电磁阀
-                if (DicRainy.TryGetValue(key, out UcRainyManual ucRainy))
-                {
-                    // 检查当前是否开启状态，如果是则关闭
-                    if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
-                    {
-                        //SetStatus(OPCHelper.DOgrp.DOlist, key, false); //不需要关闭输出
-                        AppendText($"[报警] {e.ChannelName} 流量超标，已自动关闭管路输出");
-                    }
-                }
+                //if (DicRainy.TryGetValue(key, out UcRainyManual ucRainy))
+                //{
+                //    // 检查当前是否开启状态，如果是则关闭
+                //    if (CheckStatus(OPCHelper.DOgrp.DOlist, key))
+                //    {
+                //        SetStatus(OPCHelper.DOgrp.DOlist, key, false); //不需要关闭输出
+                //        AppendText($"[报警] {e.ChannelName} 流量超标，已自动关闭管路输出");
+                //    }
+                //}
 
                 // 显示提示信息
                 string alarmMsg = $"[流量超标报警]\n" +

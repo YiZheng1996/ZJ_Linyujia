@@ -300,7 +300,7 @@
                 $"阈值:{threshold:F2}m³/h (超标{_thresholdPercent}%)");
 
             // 关闭当前管路输出(关闭电磁阀)
-            CloseValve();
+            //CloseValve();
 
             // 触发报警事件(由ucHMI处理MQTT上传)
             FlowAlarm?.Invoke(this, alarmArgs);
