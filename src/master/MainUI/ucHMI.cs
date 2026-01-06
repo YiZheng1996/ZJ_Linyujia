@@ -1061,7 +1061,7 @@ namespace MainUI
                 if (sender is not UcRainyManual manual)
                     return;
 
-                int key = manual.Tag.ToInt32();
+                //int key = manual.Tag.ToInt32();
 
                 // 关闭对应管路的电磁阀
                 //if (DicRainy.TryGetValue(key, out UcRainyManual ucRainy))

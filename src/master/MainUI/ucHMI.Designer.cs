@@ -68,8 +68,8 @@ namespace MainUI
             tabs1 = new AntdUI.Tabs();
             tabPage3 = new AntdUI.TabPage();
             grpRainy = new UIPanel();
-            switchRun = new MainUI.Procedure.Controls.SwitchPictureBox();
             switchBuShui = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchRun = new MainUI.Procedure.Controls.SwitchPictureBox();
             uiPanel19 = new UIPanel();
             uiPanel15 = new UIPanel();
             uiPanel17 = new UIPanel();
@@ -84,13 +84,13 @@ namespace MainUI
             ucRainyManual2 = new UcRainyManual();
             ucRainyManual1 = new UcRainyManual();
             grpDI = new UITitlePanel();
-            switchPictureBox7 = new MainUI.Procedure.Controls.SwitchPictureBox();
-            switchPictureBox6 = new MainUI.Procedure.Controls.SwitchPictureBox();
-            switchPictureBox5 = new MainUI.Procedure.Controls.SwitchPictureBox();
-            switchPictureBox4 = new MainUI.Procedure.Controls.SwitchPictureBox();
-            switchPictureBox3 = new MainUI.Procedure.Controls.SwitchPictureBox();
-            switchPictureBox1 = new MainUI.Procedure.Controls.SwitchPictureBox();
             switchPictureBox2 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox1 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox3 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox4 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox5 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox6 = new MainUI.Procedure.Controls.SwitchPictureBox();
+            switchPictureBox7 = new MainUI.Procedure.Controls.SwitchPictureBox();
             grpDO = new UITitlePanel();
             label5 = new Label();
             label7 = new Label();
@@ -152,18 +152,18 @@ namespace MainUI
             tabs1.SuspendLayout();
             tabPage3.SuspendLayout();
             grpRainy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)switchRun).BeginInit();
             ((System.ComponentModel.ISupportInitialize)switchBuShui).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchRun).BeginInit();
             uiPanel17.SuspendLayout();
             uiPanel10.SuspendLayout();
             grpDI.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)switchPictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox7).BeginInit();
             grpDO.SuspendLayout();
             grpAI.SuspendLayout();
             uiPanel3.SuspendLayout();
@@ -901,8 +901,8 @@ namespace MainUI
             // 
             // grpRainy
             // 
-            grpRainy.Controls.Add(switchBuShui);
             grpRainy.Controls.Add(switchRun);
+            grpRainy.Controls.Add(switchBuShui);
             grpRainy.Controls.Add(uiPanel19);
             grpRainy.Controls.Add(uiPanel15);
             grpRainy.Controls.Add(uiPanel17);
@@ -935,26 +935,6 @@ namespace MainUI
             grpRainy.Text = null;
             grpRainy.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // switchRun
-            // 
-            switchRun.CanClick = false;
-            switchRun.ClickSwitch = false;
-            switchRun.FalseImage = Resources.灰灯;
-            switchRun.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
-            switchRun.Image = Resources.灰灯;
-            switchRun.Index = 22;
-            switchRun.Location = new Point(842, 2);
-            switchRun.Name = "switchRun";
-            switchRun.Size = new Size(50, 50);
-            switchRun.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchRun.Switch = false;
-            switchRun.TabIndex = 13;
-            switchRun.TabStop = false;
-            switchRun.Text = "系统运行状态";
-            switchRun.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchRun.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchRun.TrueImage = Resources.绿灯;
-            // 
             // switchBuShui
             // 
             switchBuShui.CanClick = false;
@@ -974,6 +954,26 @@ namespace MainUI
             switchBuShui.TextBackColor = Color.FromArgb(49, 54, 64);
             switchBuShui.TextLayout = Procedure.Controls.TextLayout.Bottom;
             switchBuShui.TrueImage = Resources.绿灯;
+            // 
+            // switchRun
+            // 
+            switchRun.CanClick = false;
+            switchRun.ClickSwitch = false;
+            switchRun.FalseImage = Resources.灰灯;
+            switchRun.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            switchRun.Image = Resources.灰灯;
+            switchRun.Index = 22;
+            switchRun.Location = new Point(842, 2);
+            switchRun.Name = "switchRun";
+            switchRun.Size = new Size(50, 50);
+            switchRun.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchRun.Switch = false;
+            switchRun.TabIndex = 13;
+            switchRun.TabStop = false;
+            switchRun.Text = "系统运行状态";
+            switchRun.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchRun.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchRun.TrueImage = Resources.绿灯;
             // 
             // uiPanel19
             // 
@@ -1232,13 +1232,13 @@ namespace MainUI
             // grpDI
             // 
             grpDI.BackColor = Color.FromArgb(49, 54, 64);
-            grpDI.Controls.Add(switchPictureBox2);
-            grpDI.Controls.Add(switchPictureBox1);
-            grpDI.Controls.Add(switchPictureBox3);
-            grpDI.Controls.Add(switchPictureBox4);
-            grpDI.Controls.Add(switchPictureBox5);
-            grpDI.Controls.Add(switchPictureBox6);
             grpDI.Controls.Add(switchPictureBox7);
+            grpDI.Controls.Add(switchPictureBox6);
+            grpDI.Controls.Add(switchPictureBox5);
+            grpDI.Controls.Add(switchPictureBox4);
+            grpDI.Controls.Add(switchPictureBox3);
+            grpDI.Controls.Add(switchPictureBox1);
+            grpDI.Controls.Add(switchPictureBox2);
             grpDI.FillColor = Color.FromArgb(49, 54, 64);
             grpDI.FillColor2 = Color.FromArgb(49, 54, 64);
             grpDI.FillDisableColor = Color.FromArgb(49, 54, 64);
@@ -1259,100 +1259,24 @@ namespace MainUI
             grpDI.TitleForeColor = Color.FromArgb(235, 227, 221);
             grpDI.TitleHeight = 29;
             // 
-            // switchPictureBox7
+            // switchPictureBox2
             // 
-            switchPictureBox7.CanClick = false;
-            switchPictureBox7.ClickSwitch = false;
-            switchPictureBox7.FalseImage = Resources.灰灯;
-            switchPictureBox7.Image = Resources.灰灯;
-            switchPictureBox7.Index = 18;
-            switchPictureBox7.Location = new Point(551, 49);
-            switchPictureBox7.Name = "switchPictureBox7";
-            switchPictureBox7.Size = new Size(50, 50);
-            switchPictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox7.Switch = false;
-            switchPictureBox7.TabIndex = 11;
-            switchPictureBox7.TabStop = false;
-            switchPictureBox7.Text = "本地启动";
-            switchPictureBox7.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox7.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox7.TrueImage = Resources.绿灯;
-            // 
-            // switchPictureBox6
-            // 
-            switchPictureBox6.CanClick = false;
-            switchPictureBox6.ClickSwitch = false;
-            switchPictureBox6.FalseImage = Resources.灰灯;
-            switchPictureBox6.Image = Resources.灰灯;
-            switchPictureBox6.Index = 20;
-            switchPictureBox6.Location = new Point(815, 49);
-            switchPictureBox6.Name = "switchPictureBox6";
-            switchPictureBox6.Size = new Size(50, 50);
-            switchPictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox6.Switch = false;
-            switchPictureBox6.TabIndex = 13;
-            switchPictureBox6.TabStop = false;
-            switchPictureBox6.Text = "本地/远程";
-            switchPictureBox6.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox6.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox6.TrueImage = Resources.绿灯;
-            // 
-            // switchPictureBox5
-            // 
-            switchPictureBox5.CanClick = false;
-            switchPictureBox5.ClickSwitch = false;
-            switchPictureBox5.FalseImage = Resources.灰灯;
-            switchPictureBox5.Image = Resources.灰灯;
-            switchPictureBox5.Index = 19;
-            switchPictureBox5.Location = new Point(677, 49);
-            switchPictureBox5.Name = "switchPictureBox5";
-            switchPictureBox5.Size = new Size(50, 50);
-            switchPictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox5.Switch = false;
-            switchPictureBox5.TabIndex = 12;
-            switchPictureBox5.TabStop = false;
-            switchPictureBox5.Text = "本地停止";
-            switchPictureBox5.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox5.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox5.TrueImage = Resources.绿灯;
-            // 
-            // switchPictureBox4
-            // 
-            switchPictureBox4.CanClick = false;
-            switchPictureBox4.ClickSwitch = false;
-            switchPictureBox4.FalseImage = Resources.灰灯;
-            switchPictureBox4.Image = Resources.灰灯;
-            switchPictureBox4.Index = 16;
-            switchPictureBox4.Location = new Point(299, 49);
-            switchPictureBox4.Name = "switchPictureBox4";
-            switchPictureBox4.Size = new Size(50, 50);
-            switchPictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox4.Switch = false;
-            switchPictureBox4.TabIndex = 6;
-            switchPictureBox4.TabStop = false;
-            switchPictureBox4.Text = "变频器2运行";
-            switchPictureBox4.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox4.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox4.TrueImage = Resources.绿灯;
-            // 
-            // switchPictureBox3
-            // 
-            switchPictureBox3.CanClick = false;
-            switchPictureBox3.ClickSwitch = false;
-            switchPictureBox3.FalseImage = Resources.灰灯;
-            switchPictureBox3.Image = Resources.灰灯;
-            switchPictureBox3.Index = 17;
-            switchPictureBox3.Location = new Point(425, 49);
-            switchPictureBox3.Name = "switchPictureBox3";
-            switchPictureBox3.Size = new Size(50, 50);
-            switchPictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox3.Switch = false;
-            switchPictureBox3.TabIndex = 7;
-            switchPictureBox3.TabStop = false;
-            switchPictureBox3.Text = "变频器2故障";
-            switchPictureBox3.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox3.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox3.TrueImage = Resources.绿灯;
+            switchPictureBox2.CanClick = false;
+            switchPictureBox2.ClickSwitch = false;
+            switchPictureBox2.FalseImage = Resources.灰灯;
+            switchPictureBox2.Image = Resources.灰灯;
+            switchPictureBox2.Index = 14;
+            switchPictureBox2.Location = new Point(47, 49);
+            switchPictureBox2.Name = "switchPictureBox2";
+            switchPictureBox2.Size = new Size(50, 50);
+            switchPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox2.Switch = false;
+            switchPictureBox2.TabIndex = 0;
+            switchPictureBox2.TabStop = false;
+            switchPictureBox2.Text = "变频器1运行";
+            switchPictureBox2.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox2.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox2.TrueImage = Resources.绿灯;
             // 
             // switchPictureBox1
             // 
@@ -1373,24 +1297,100 @@ namespace MainUI
             switchPictureBox1.TextLayout = Procedure.Controls.TextLayout.Bottom;
             switchPictureBox1.TrueImage = Resources.绿灯;
             // 
-            // switchPictureBox2
+            // switchPictureBox3
             // 
-            switchPictureBox2.CanClick = false;
-            switchPictureBox2.ClickSwitch = false;
-            switchPictureBox2.FalseImage = Resources.灰灯;
-            switchPictureBox2.Image = Resources.灰灯;
-            switchPictureBox2.Index = 14;
-            switchPictureBox2.Location = new Point(47, 49);
-            switchPictureBox2.Name = "switchPictureBox2";
-            switchPictureBox2.Size = new Size(50, 50);
-            switchPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            switchPictureBox2.Switch = false;
-            switchPictureBox2.TabIndex = 0;
-            switchPictureBox2.TabStop = false;
-            switchPictureBox2.Text = "变频器1运行";
-            switchPictureBox2.TextBackColor = Color.FromArgb(49, 54, 64);
-            switchPictureBox2.TextLayout = Procedure.Controls.TextLayout.Bottom;
-            switchPictureBox2.TrueImage = Resources.绿灯;
+            switchPictureBox3.CanClick = false;
+            switchPictureBox3.ClickSwitch = false;
+            switchPictureBox3.FalseImage = Resources.灰灯;
+            switchPictureBox3.Image = Resources.灰灯;
+            switchPictureBox3.Index = 17;
+            switchPictureBox3.Location = new Point(425, 49);
+            switchPictureBox3.Name = "switchPictureBox3";
+            switchPictureBox3.Size = new Size(50, 50);
+            switchPictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox3.Switch = false;
+            switchPictureBox3.TabIndex = 7;
+            switchPictureBox3.TabStop = false;
+            switchPictureBox3.Text = "变频器2故障";
+            switchPictureBox3.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox3.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox3.TrueImage = Resources.绿灯;
+            // 
+            // switchPictureBox4
+            // 
+            switchPictureBox4.CanClick = false;
+            switchPictureBox4.ClickSwitch = false;
+            switchPictureBox4.FalseImage = Resources.灰灯;
+            switchPictureBox4.Image = Resources.灰灯;
+            switchPictureBox4.Index = 16;
+            switchPictureBox4.Location = new Point(299, 49);
+            switchPictureBox4.Name = "switchPictureBox4";
+            switchPictureBox4.Size = new Size(50, 50);
+            switchPictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox4.Switch = false;
+            switchPictureBox4.TabIndex = 6;
+            switchPictureBox4.TabStop = false;
+            switchPictureBox4.Text = "变频器2运行";
+            switchPictureBox4.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox4.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox4.TrueImage = Resources.绿灯;
+            // 
+            // switchPictureBox5
+            // 
+            switchPictureBox5.CanClick = false;
+            switchPictureBox5.ClickSwitch = false;
+            switchPictureBox5.FalseImage = Resources.灰灯;
+            switchPictureBox5.Image = Resources.灰灯;
+            switchPictureBox5.Index = 19;
+            switchPictureBox5.Location = new Point(677, 49);
+            switchPictureBox5.Name = "switchPictureBox5";
+            switchPictureBox5.Size = new Size(50, 50);
+            switchPictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox5.Switch = false;
+            switchPictureBox5.TabIndex = 12;
+            switchPictureBox5.TabStop = false;
+            switchPictureBox5.Text = "本地停止";
+            switchPictureBox5.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox5.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox5.TrueImage = Resources.绿灯;
+            // 
+            // switchPictureBox6
+            // 
+            switchPictureBox6.CanClick = false;
+            switchPictureBox6.ClickSwitch = false;
+            switchPictureBox6.FalseImage = Resources.灰灯;
+            switchPictureBox6.Image = Resources.灰灯;
+            switchPictureBox6.Index = 20;
+            switchPictureBox6.Location = new Point(815, 49);
+            switchPictureBox6.Name = "switchPictureBox6";
+            switchPictureBox6.Size = new Size(50, 50);
+            switchPictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox6.Switch = false;
+            switchPictureBox6.TabIndex = 13;
+            switchPictureBox6.TabStop = false;
+            switchPictureBox6.Text = "本地/远程";
+            switchPictureBox6.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox6.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox6.TrueImage = Resources.绿灯;
+            // 
+            // switchPictureBox7
+            // 
+            switchPictureBox7.CanClick = false;
+            switchPictureBox7.ClickSwitch = false;
+            switchPictureBox7.FalseImage = Resources.灰灯;
+            switchPictureBox7.Image = Resources.灰灯;
+            switchPictureBox7.Index = 18;
+            switchPictureBox7.Location = new Point(551, 49);
+            switchPictureBox7.Name = "switchPictureBox7";
+            switchPictureBox7.Size = new Size(50, 50);
+            switchPictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            switchPictureBox7.Switch = false;
+            switchPictureBox7.TabIndex = 11;
+            switchPictureBox7.TabStop = false;
+            switchPictureBox7.Text = "本地启动";
+            switchPictureBox7.TextBackColor = Color.FromArgb(49, 54, 64);
+            switchPictureBox7.TextLayout = Procedure.Controls.TextLayout.Bottom;
+            switchPictureBox7.TrueImage = Resources.绿灯;
             // 
             // grpDO
             // 
@@ -2377,19 +2377,19 @@ namespace MainUI
             tabPage3.ResumeLayout(false);
             grpRainy.ResumeLayout(false);
             grpRainy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)switchRun).EndInit();
             ((System.ComponentModel.ISupportInitialize)switchBuShui).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchRun).EndInit();
             uiPanel17.ResumeLayout(false);
             uiPanel10.ResumeLayout(false);
             grpDI.ResumeLayout(false);
             grpDI.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)switchPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)switchPictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)switchPictureBox7).EndInit();
             grpDO.ResumeLayout(false);
             grpDO.PerformLayout();
             grpAI.ResumeLayout(false);

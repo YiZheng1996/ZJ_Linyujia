@@ -84,7 +84,7 @@ namespace MainUI.CurrencyHelper
 
         public static void ShowSettingDialog04(this UIDigitalLabel label, object sender, Form parentForm)
         {
-            label.ShowSettingDialog(sender, parentForm, "喷淋时间", 1000,
+            label.ShowSettingDialog(sender, parentForm, "喷淋时间(S)", 10000,
                 value =>
                 {
                     OPCHelper.AOgrp.CA04 = Convert.ToInt32(value);
