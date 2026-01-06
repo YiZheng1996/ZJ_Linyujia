@@ -1310,16 +1310,19 @@ namespace MainUI
         {
             var sder = sender as UISwitch;
             int Index = sder.Tag.ToInt32();
+
             if (Index == 18)
             {
-                OPCHelper.DOgrp[sder.Tag.ToInt32()] = value; //远程启动
-                OPCHelper.DOgrp[19] = !value; //远程停止
                 if (!value)
                 {
+                    OPCHelper.DOgrp[sder.Tag.ToInt32()] = value; //远程启动
+                    OPCHelper.DOgrp[19] = !value; //远程停止
+
                     AppendText("远程启动关闭");
                     Thread.Sleep(1000);
                     OPCHelper.DOgrp[19] = false;
                     IsTestEnd();
+
                     if (MessageBox.Show(this, "检测到关闭远程启动，是否上传数据到中控系统？", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // 电能耗
@@ -1336,8 +1339,23 @@ namespace MainUI
                     }
                     _testStartTime = string.Empty; // 上传后清空，避免下次误用
                 }
+                // 开启操作-需要检查型号 
                 else
                 {
+                    // 检查是否选择了型号
+                    if (string.IsNullOrEmpty(VarHelper.mTestViewModel.ModelName))
+                    {
+                        MessageHelper.MessageOK(frm, "未选择型号，无法启动远程启动!", AntdUI.TType.Error);
+
+                        // 将开关状态复位为关闭
+                        sder.Active = false;
+                        return; // 阻止执行后续操作
+                    }
+
+                    // 型号检查通过，执行开启操作
+                    OPCHelper.DOgrp[sder.Tag.ToInt32()] = value; //远程启动
+                    OPCHelper.DOgrp[19] = !value; //远程停止
+
                     AppendText("远程启动开启");
                     _testStartTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     _cancellationTokenSource = new CancellationTokenSource();
